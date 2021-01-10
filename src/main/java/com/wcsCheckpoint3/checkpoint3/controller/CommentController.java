@@ -13,43 +13,43 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wcsCheckpoint3.checkpoint3.entity.Post;
+import com.wcsCheckpoint3.checkpoint3.entity.Comment;
 import com.wcsCheckpoint3.checkpoint3.service.Cp3Service;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-public class PostController {
+public class CommentController {
 
+	
 	@Autowired
 	Cp3Service cp3serv;
 	
-	@GetMapping("/posts")
-	public List<Post> indexPost(){
-		return cp3serv.getAllPosts();
+	@GetMapping("/comments")
+	public List<Comment> indexPost(){
+		return cp3serv.getAllComments();
 	}
 	
-	@GetMapping("/posts/{id}")
-	public ResponseEntity<Post> showPosts(@PathVariable Long id){
-		Post post = cp3serv.getPostById(id);
-		return ResponseEntity.ok().body(post);
+	@GetMapping("/comments/{id}")
+	public ResponseEntity<Comment> showComment(@PathVariable Long id){
+		Comment comment = cp3serv.getCommentById(id);
+		return ResponseEntity.ok().body(comment);
 	}
 	
-	@PostMapping("/posts")
-	public ResponseEntity<Post> createPost(@RequestBody Post post) {
-		Post postToCreate = cp3serv.createPost(post);
-		return ResponseEntity.ok().body(postToCreate);
+	@PostMapping("/comments")
+	public ResponseEntity<Comment> createComment(@RequestBody Comment comment) {
+		Comment commentToCreate = cp3serv.createComment(comment);
+		return ResponseEntity.ok().body(commentToCreate);
 	}
 	
-	@PutMapping("/posts/{id}")
-	public ResponseEntity<Post> updatePost(@RequestBody Post post) {
-		Post postToUpdate = cp3serv.updatePost(post);
-		return ResponseEntity.ok().body(postToUpdate);
+	@PutMapping("/comments/{id}")
+	public ResponseEntity<Comment> updateComment(@RequestBody Comment comment) {
+		Comment commentToUpdate = cp3serv.updateComment(comment);
+		return ResponseEntity.ok().body(commentToUpdate);
 	}
-
 	
-	@DeleteMapping("/posts/{id}")
+	@DeleteMapping("/comments/{id}")
 	public boolean delete(@PathVariable Long id) {
-		return cp3serv.deletePost(id);
+		return cp3serv.deleteComment(id);
 	}
 	
 }
