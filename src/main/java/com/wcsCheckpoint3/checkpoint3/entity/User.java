@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name= "users")
 public class User {
 
 	@Id
@@ -28,11 +27,6 @@ public class User {
 		
 	}
 
-	public User(String firstname, String lastname) {
-		
-		this.firstname = firstname;
-		this.lastname = lastname;
-	}
 
 	public Long getId() {
 		return id;

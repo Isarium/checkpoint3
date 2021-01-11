@@ -26,7 +26,7 @@ public class Post {
 	private String message;
 	private String imageUrl;
 	
-    @ManyToOne(fetch = FetchType.LAZY)
+   /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     User user;
@@ -34,7 +34,7 @@ public class Post {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    List<Comment> comments;
+    List<Comment> comments;*/
 
 	public Post() {
 	}
@@ -69,7 +69,7 @@ public class Post {
 		this.imageUrl = imageUrl;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
@@ -83,7 +83,7 @@ public class Post {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
-	}
+	}*/
 	
 	
 	
